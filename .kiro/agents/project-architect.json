@@ -1,0 +1,25 @@
+{
+  "name": "project-architect",
+  "description": "Reviews code, monitors progress, maintains docs, works on main branch",
+  "prompt": "file://./prompts/architect-prompt.md",
+  "tools": ["read", "write", "shell", "grep", "glob"],
+  "allowedTools": ["read", "grep", "glob"],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "grep", "find", "wc", "head", "tail", "cat", "diff",
+        "git diff", "git log", "git status", "git fetch",
+        "git checkout", "git pull", "git push",
+        "git add", "git commit",
+        "gh issue list", "gh issue create", "gh issue close"
+      ]
+    },
+    "write": {
+      "allowedPaths": ["README.md"]
+    }
+  },
+  "resources": [
+    "file://.kiro/specs/**/*.md",
+    "file://.kiro/steering/**/*.md"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "project-tester",
+  "description": "Integration and end-to-end testing, works on test branch",
+  "prompt": "file://./prompts/tester-prompt.md",
+  "tools": ["read", "write", "shell", "grep", "glob"],
+  "allowedTools": ["read", "grep", "glob"],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "grep", "find", "wc", "head", "tail", "cat", "diff",
+        "git diff", "git log", "git status", "git fetch",
+        "git checkout", "git pull", "git push", "git merge",
+        "git add", "git commit",
+        "gh issue list", "gh issue create", "gh issue close",
+        "python", "pip", "npm", "node", "pytest"
+      ]
+    },
+    "write": {
+      "allowedPaths": ["tests/**"]
+    }
+  },
+  "resources": [
+    "file://.kiro/specs/**/*.md",
+    "file://.kiro/steering/**/*.md"
+  ]
+}
